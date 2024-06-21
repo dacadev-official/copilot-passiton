@@ -1,40 +1,164 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+  <title>GitHub Copilot - Endava</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css">
+  <link rel="stylesheet" href="https://unpkg.com/primeflex@3.3.1/themes/primeone-dark.css">
+  <style>
+    :root {
+      --primary-color: rgb(255 86 64);
+      --bg-color: rgb(25 43 55);
+    }
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    .reveal,
+    .slides {
+      background-color: var(--bg-color);
+      background-size: cover;
+    }
+  </style>
+</head>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- INCIO -->
+      <section data-backgorind-image="/img/bg-img.jpg">
+        <div class="flex flex-column justify-content-center align-items-center">
+          <h4 class="m-0"> GitHub <span class="text-primary">Copilot</span> </h4>
+          <img src="/img/copilot-logo.png" alt="Logo GitHub copilot" width="100" class="m-0">
+        </div>
+      </section>
+      <!-- Introducción a Copilot -->
+      <section>
+        <section>
+          <h4>¿Qué es <span class="text-primary">GitHub Copilot</span>? 🤖</h4>
+          <p class="text-3xl">GitHub Copilot es una herramienta de IA que pone a disposición de los desarrolladores la
+            capacidad de LLMs re-entrenados para la escritura de código.</p>
+        </section>
+        <section>
+          <h4><span class="text-primary">GitHub Copilot</span> nos oferce...</h4>
+          <ul>
+            <li class="fragment">Sugerencias de código en tiempo real 💭</li>
+            <li class="fragment">Explicación de código 🗺️</li>
+            <li class="fragment">Generación de pruebas del código 🧪</li>
+            <li class="fragment">Generación de documentación del código 📕</li>
+          </ul>
+        </section>
+        <section>
+          <h4>A través <span class="text-primary">interfaces</span> como...</h4>
+          <ul>
+            <li class="fragment">Text completions</li>
+            <li class="fragment">Chat en el IDE y App mobile</li>
+            <li class="fragment">Voz y comandos</li>
+            <li class="fragment">Integración en la terminal</li>
+          </ul>
+        </section>
+      </section>
+      <!-- Entrenamiento y datos -->
+      <section>
+        <section>
+          <h4>Dataset de <span class="text-primary">entrenamiento</span> y <span class="text-primary">Modelo</span> LLM
+          </h4>
+          <p class="fragment semi-fade-out text-4xl" data-fragment-index="1"><i>¿<span class="text-primary">Copilot</span> y por ende Microsoft <span
+                class="text-primary">usará mis datos</span> para entrenar el modelo?</i></p>
+          <p class="fragment fade-in" data-fragment-index="1"><b><i>¡NO!</i></b> Copilot no usará tu código o el código generado para re-entrenar modelos futuros**</p>
+        </section>
+        <section>
+          <div class="r-stack">
+            <div class="fragment  semi-fade-out" data-fragment-index="1">
+              <h3 class="text-primary"><b>**</b></h3>
+              <p class="text-3xl">Si cuentas con una suscripción individual, existirá la configuración de 
+                <i class="text-primary">Recopilar `code snippets` generados con Copilot para mejorar el modelo</i>
+                que estará activa por defecto.
+              </p>
+              <p>Puedes controlar si activar o no esta característica</p>
+            </div>
+            <div class="fragment" data-fragment-index="1">
+              <p class="m-0 ml-5 text-left text-2xl">https://github.com/settings/copilot</p>
+              <img class="m-0"  src="/img/default-config-use-code-snippet.png" alt="Ejemplo default config">
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>y entonces...¿De donde provienen los datos?</h4>
+        </section>
+        <section>
+          <h4 class="text-primary">Datasets</h4>
+          <ul>
+            <li class="fragment"> Modelo <span class="text-primary">Codex</span>; versión basado en <span class="text-primary">GPT-3.5</span>**</li>
+              <ul class="text-2xl fragment">
+                <li>Ha sido entrenado con una gran cantidad de datos de código disponible, públicamente (Internet)</li>
+              </ul>
+            <li class="fragment"><span class="text-primary">Repositorios públicos</span> alojado en GitHub</li>
+          </ul>
+          <div class="fragment inline-block px-6 border-1 border-primary border-round-2xl text-2xl mt-5 mx-8 py-3">
+            <h5>Referencias</h5>
+            <a href="https://openai.com/index/openai-codex/">OpenAI - Codex</a>
+          </div>
+        </section>
+      </section>
+      <!-- Configuración y puesta en marcha -->
+      <section>
+        <section>
+          <h4><span class="text-primary">Configuración</span> de Copilot</h4>
+          <div class="grid">
+            <div class="col-6">
+              <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot" target="_blank">
+                <img src="/img/apps/copilot.png" alt="GitHub Copilot Extensión" class="border-round-xl m-0">
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat" target="_blank">
+                <img src="/img/apps/chat.png" alt="GitHub Copilot Chat Extensión" class="border-round-xl m-0">
+              </a>
+            </div>
+            <div class="col-6 relative">
+              <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech" target="_blank">
+                <img src="/img/apps/voice.png" alt="VC Code Speech Extensión" class="border-round-xl m-0">
+              </a>
+              <span class="text-primary text-8xl absolute right-0" style="top: -30px;">*</span>
+            </div>
+            <div class="col-6 relative">
+              <a href="https://cli.github.com/" target="_blank">
+                <img src="/img/apps/cli.png" alt="GitHub CLI app" class="border-round-xl m-0">
+              </a>
+              <span class="text-primary text-8xl absolute right-0" style="top: -30px;">*</span>
+            </div>
+          </div>
+          <p class="m-0 text-2xl text-right text-color-secondary">
+            <span class="text-primary">*</span> Opcionales.
+          </p>
+          <p class="m-0 text-2xl text-left">
+            <a href="https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor" target="_blank">
+              🔗 Configuración en otros editores
+            </a>
+          </p>
+          
+          <!-- <p>Configuración en Visual Studio Code **</p> -->
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
 </html>
