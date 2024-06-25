@@ -22,12 +22,32 @@
       .slides {
         background-color: var(--bg-color);
         background-size: cover;
+        position: relative;
+      }
+      .reveal>img.bg-img-logo {
+        position: fixed;
+        left: 30px;
+        width: 200px;
+        opacity: 0.7;
+        z-index: 2;
+      }
+      .slides::after {
+        content: "";
+        position: absolute;
+        background-color: var(--primary-color);
+        height: 5px;
+        left: -100%;
+        right: -100%;
+        bottom: 20px;
+        opacity: .6;
+        z-index: -2;
       }
     </style>
   </head>
 
   <body>
     <div class="reveal">
+      <img src="./img/logo-endava.svg" alt="logo Endava image" class="bg-img-logo">
       <div class="slides">
         <!-- INCIO -->
         <section data-backgorind-image="./img/bg-img.jpg">
@@ -73,7 +93,7 @@
                 Modelo <span class="text-primary">Codex</span>; versión basado en <span class="text-primary">GPT-3</span>**
               </li>
               <ul class="text-2xl fragment">
-                <li>Ha sido entrenado con una gran cantidad de datos de código disponible, públicamente (Internet)</li>
+                <li>Ha sido entrenado con una gran cantidad de datos de código disponible públicamente (Internet)</li>
               </ul>
               <li class="fragment"><span class="text-primary">Repositorios públicos</span> alojado en GitHub</li>
             </ul>
@@ -84,9 +104,9 @@
           </section>
           <section>
             <h5 class="fragment semi-fade-out text-4xl" data-fragment-index="1">
-              y entonces...
+              y mis <span class="text-primary">datos</span>...
               <br />
-              ¿mis <span class="text-primary">datos</span> están <span class="text-primary">seguros</span>?
+              ¿están <span class="text-primary">seguros</span>?
             </h5>
             <p class="fragment semi-fade-out text-4xl" data-fragment-index="1">
               <i
@@ -97,6 +117,12 @@
             <p class="fragment fade-in" data-fragment-index="1">
               <b><i>¡NO!</i></b> Copilot no usará tu código o el código generado para re-entrenar modelos futuros**
             </p>
+            <aside class="notes">
+              <ul>
+                <li>Ya que los datos provienen de repositorios alojados en GitHub, siempre se genera la duda de</li>
+                <li>Mis datos estan seguros? mi código será expuesto o usado como reentrenamiento?</li>
+              </ul>
+            </aside>
           </section>
           <section>
             <div class="r-stack">
@@ -130,7 +156,7 @@
               </div>
               <div class="fragment" data-fragment-index="1">
                 <p class="m-0 ml-5 text-left text-2xl">https://github.com/settings/copilot</p>
-                <img class="m-0" src="./img/default-config-use-code-snippet.png" alt="Ejemplo default config" />
+                <img class="m-0 block"  height="600" src="./img/default-config-use-code-snippet.png" alt="Ejemplo default config" />
               </div>
             </div>
           </section>
@@ -169,6 +195,7 @@
               <ul>
                 <li class="fragment">Su precisión es variable dependiendo del contexto y del prompt</li>
                 <li class="fragment">Riesgos de seguridad potenciales<span class="text-primary">**</span></li>
+                <li class="fragment">La posibilidad de alucinaciones propias de los LLMs</li>
                 <li class="fragment">Depender demasiado de la herramienta</li>
               </ul>
             </section>
