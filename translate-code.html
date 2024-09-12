@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>Translating Code - GitHub Copilot</title>
+
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/black.css" />
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css" />
+  <link rel="stylesheet" href="https://unpkg.com/primeflex@3.3.1/themes/primeone-dark.css" />
+  <style>
+    :root {
+      --primary-color: rgb(255 86 64);
+      --bg-color: rgb(25 43 55);
+    }
+
+    .reveal,
+    .slides {
+      background-color: var(--bg-color);
+      background-size: cover;
+      position: relative;
+    }
+
+    .reveal>img.bg-img-logo {
+      position: fixed;
+      left: 30px;
+      width: 200px;
+      opacity: 0.7;
+      z-index: 2;
+    }
+
+    .slides::after {
+      content: "";
+      position: absolute;
+      background-color: var(--primary-color);
+      height: 5px;
+      left: -100%;
+      right: -100%;
+      bottom: 20px;
+      opacity: .6;
+      z-index: -2;
+    }
+
+    .ref-link {
+      position: relative;
+    }
+
+    .ref-link>.ref-label {
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: .8rem;
+      top: -30%;
+      right: -50px;
+    }
+
+    .side-title {
+      position: absolute;
+      top: -1.2rem;
+      left: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: .8rem;
+      transform: translateX(-50%);
+    }
+
+    .call-out {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      border: 3px solid white;
+      width: 80%;
+      margin: auto;
+      max-width: 600px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <img src="./img/logo-endava.svg" alt="logo Endava image" class="bg-img-logo">
+    <div class="slides">
+      <!-- START -->
+      <section>
+        <div class="flex flex-column justify-content-center align-items-center">
+          <h4 class="m-0">
+            <span class="text-primary">Translate code</span> <br> with your Copilot Partner
+          </h4>
+          <img src="./img/copilot-logo.png" alt="Logo GitHub copilot" width="100" class="m-0" />
+        </div>
+      </section>
+      <section>
+        <h3 class="text-primary">Timeline</h3>
+        <img src="./img//timeline-2.png" alt="Sessions timeline" class="surface-900 p-5 border-round-xl">
+      </section>
+      <!-- TOPICS -->
+      <section>
+        <h3>Topics</h3>
+        <ol>
+          <li>Introduction to the translation stack</li>
+          <li>Considerations and recommendations</li>
+          <li>Exercise:
+            <ul>
+              <li>Translating <span class="text-primary">languages</span></li>
+              <li>Translating <span class="text-primary">standards</span></li>
+            </ul>
+          </li>
+          <li>Recap and insights</li>
+        </ol>
+        <aside class="notes">
+          We going to split the session in 4 main topics, starting with ...
+        </aside>
+      </section>
+      <!-- INITIAL NOTES -->
+      <section>
+        <section>
+          <h3>Housekeeping notes...</h3>
+          <p class="fragment">
+            The main goal of this talk is not only to show you how to use these tools to translate code...
+            <br>
+            but also to spark your <span class="text-primary">curiosity</span>.
+          </p>
+        </section>
+        <section>
+          <p>
+            This is a constantly evolving technology, with many ways to use it and even more to discover.
+          </p>
+          <div class="fragment call-out">
+            <p>Be part of that discovery!</p>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>Go further than what we show you today, search, try and share your findings if you wants.</li>
+            </ul>
+          </aside>
+        </section>
+      </section>
+      <!-- INTRODUCTION -->
+      <section>
+        <section>
+          <h3>Translating <span class="text-primary">Stack</span></h3>
+          <p>It is a <span class="text-primary">technique</span> that helps you <span
+              class="text-primary">translate</span> code or concepts between different programming languages,
+            frameworks, or protocols.</p>
+          <p class="fragment">This <span class="text-primary">not only</span> refers to the direct conversion of syntax
+            but also to the <span class="text-primary">interpretation</span> of patterns and solutions, <span
+              class="text-primary">adapting</span> them to new environments or technologies.</p>
+        </section>
+        <section>
+          <h4 class="primary-text">Goal</h4>
+          <p>The goal is to <span class="text-primary">facilitate</span> and <span
+              class="text-primary">accelerate</span> the transition between different technologies, optimizing the time
+            an engineer needs to learn a new tool or language, <span class="text-primary">without losing quality</span>
+            or understanding of the code.</p>
+        </section>
+      </section>
+      <!-- CONSIDERATIONS -->
+      <section>
+        <section>
+          <h4>Considerations</h4>
+          <p class="text-primary">Training of LLMs</p>
+          <ul>
+            <li class="fragment">LLMs are trained on large amounts of data, mainly from the internet.</li>
+            <li class="fragment">The quality and quantity of that data are not uniform across all languages and
+              frameworks.</li>
+          </ul>
+        </section>
+        <section>
+          <p class="text-primary">Results Based on Popularity</p>
+          <ul>
+            <li class="fragment">More popular languages and frameworks have more available data, which improves the
+              accuracy of LLMs.</li>
+            <li class="fragment"><span class="text-primary">Example</span>: Django (Python) has higher precision due to
+              its wide adoption and strong community presence compared to Gin (Golang).</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Suggestions</h4>
+          <ul>
+            <li>
+              <a href="https://survey.stackoverflow.co/2024/technology/#most-popular-technologies">Stackoverflow
+                Survey</a>
+            </li>
+            <li><a href="https://www.tiobe.com/tiobe-index/">Tiobe Index</a></li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>TIOBE is a company that specializes in measuring and tracking software quality.</li>
+            </ul>
+          </aside>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h4>Recommendations</h4>
+          <div class="fragment">
+            <p class="text-primary">
+              1. Having an Expert
+            </p>
+            <p class="ml-4">It's crucial to have an expert in the target and/or source language or framework to ensure
+              the quality of the generated code.</p>
+          </div>
+        </section>
+        <section>
+          <p class="text-primary">
+            2. Validation of Results
+          </p>
+          <p class="ml-4">Always validate the results from Copilot to control and reduce errors that may arise from lack
+            of context or hallucinations.</p>
+        </section>
+        <section>
+          <p class="text-primary">
+            3. Be clear about the objective of the translation.
+          </p>
+          <p class="ml-4">If you are clear about what you want to achieve in the process, you will be able to guide
+            Copilot to complete the task efficiently.</p>
+        </section>
+      </section>
+      <!-- EXAMPLE 1: LANGUAGES -->
+      <section>
+        <h4>Example 1: Translating Languages</h4>
+        <hr>
+        <p class="text-3xl">
+          <b class="text-primary">Context: </b>
+          Imagine you are a Go developer at a company that needs to migrate key services written in Python. Although you
+          have basic knowledge of Python, your specialty is Go, and you must complete this migration efficiently,
+          ensuring that the system's performance and accuracy are maintained.
+          <br>
+          <br>
+          <span class="text-primary">Are you ready for the challenge?</span>
+        </p>
+        <aside class="notes">
+          <ul>
+            <li>python -> Go [ python is more popular ]</li>
+            <li>I'm specialist in Go, [ destination code]</li>
+          </ul>
+        </aside>
+      </section>
+      <!-- EXAMPLE 2: STANDARD -->
+      <!-- <section>
+        <h4>Example 2: Translating Frameworks</h4>
+        <hr>
+        <p class="text-3xl">
+          <b class="text-primary">Context: </b>
+          You are a developer tasked with migrating a key application written in React to Vue. Although you are
+          proficient in React, Vue is new to you. Your challenge is to maintain functionality and optimize performance
+          during the transition.
+          <br>
+          <br>
+          <span class="text-primary">Let's start!</span>
+        </p>
+      </section> -->
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      slideNumber: true
+    });
+  </script>
+</body>
+
+</html>
